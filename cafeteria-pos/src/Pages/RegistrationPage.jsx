@@ -1,10 +1,11 @@
 import React from "react";
 import RegistrationCard from "../Components/RegistrationCard";
+import "../css/RegistrationPage.css";
 
 function RegistrationPage() {
     return (
-        <div>
-            <RegistrationCard />
+        <div className="register-frame">
+            <RegistrationCard className="test"/>
         </div>
     );
 }

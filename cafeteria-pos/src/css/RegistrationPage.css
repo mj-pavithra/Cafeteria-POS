@@ -1,0 +1,20 @@
+.register-frame{
+    padding: 20px 0px;
+    margin: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: overflow;
+    
+    height: 94vh;
+    max-height: 94.5vh;
+    width: 100%;
+    max-width: 1300px;
+    min-width: 300px;
+    background-color: aliceblue;
+    align-items: center;
+    background-image: url('/public/images/reg background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: black;
+}
