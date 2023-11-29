@@ -1,0 +1,31 @@
+.head-bar{
+    margin: 5px auto;
+    float: none;
+    margin: 10px auto;
+    width: 100%;
+    min-width: 300px;
+    max-width: 900px;
+    height: 90px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    background: #565051;
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.head-bar:hover{
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    transform: scale(1.1);
+}
+
+.title{
+    font-size: 30px;
+    font-weight: bold;
+    color: #000;
+    text-align: center;
+    margin-bottom: 20px;
+}

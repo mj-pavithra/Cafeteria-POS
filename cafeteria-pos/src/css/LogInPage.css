@@ -1,0 +1,28 @@
+.login-page{
+    margin: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: overflow;
+    height: 100vh;
+    width: 70%;
+    max-width: 1300px;
+    min-width: 300px;
+    background-color: aliceblue;
+}
+
+.login-card{
+    margin: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: overflow;
+    height: 100vh;
+    width: 900px;
+    max-width: 1300px;
+    min-width: 300px;
+    background-color: aliceblue;
+    background-image: url('/public/images/login background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}

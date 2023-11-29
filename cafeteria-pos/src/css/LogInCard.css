@@ -1,7 +1,92 @@
 .card{
-    min-width: 500px;
+    min-width: 420px;
     max-width: 700px;
-    min-height: 700px;
+    height: 80vh;
+    max-height: 525x;
     width: 30%;
-    background-color: aqua;
+    border-radius: 101px;
+    background: #D9D9D9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.card-title{
+    width: 325px;
+height: 96px;
+flex-shrink: 0;
+    color: #000;
+text-align: center;
+font-family: Inter;
+font-size: 48px;
+font-style: normal;
+font-weight: 300;
+margin: 50px 10px 10px 10px;
+/* line-height: normal; */
+}
+.form-group{
+    margin: 10px auto;
+    width: 269px;}
+
+.lable{
+    display: flex;
+    flex-direction: column;
+    margin: 5px 20px;
+    width: 269px;
+    height: 38px;
+    flex-shrink: 0;
+}
+.inputs{
+    margin-left: -10px;
+    width: 300px;
+    height: 39px;
+    flex-shrink: 0;
+    background: #FFF;
+}
+.btn{
+    width: 312px;
+    height: 58.3px;
+    flex-shrink: 0;
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 36px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: normal;
+    border-radius: 25px;
+    background-color: #565051;
+    margin: 10px 10px 20px 10px;
+}
+
+.to-sign-up-div{
+    display: flex;
+    flex-direction: row;
+}
+
+.to-sign-up-txt{
+    flex-shrink: 0;
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    margin: 10px 10px 0px 10px;
+}
+
+.to-sign-up{
+    flex-shrink: 0;
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    margin: 10px 10px 0px 10px;
+    text-decoration: underline;
+    cursor: pointer;
 }
