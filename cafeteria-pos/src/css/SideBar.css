@@ -1,0 +1,48 @@
+.side-bar {
+    min-width: 200px;
+    width: 20vw;
+    max-width: 350px;
+    height: 100vh;
+    background-color: #f8f9fa;
+    border-right: 1px solid #dee2e6;
+}
+
+.side-bar-header {
+    padding: 20px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.side-bar-header-txt {
+    margin: 0;
+    color: #495057;
+}
+
+.side-bar-body {
+    padding: 20px;
+}
+
+.side-bar-body-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.side-bar-body-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    color: #000000;
+    background-color: #ececec91;
+    border-color: #0505052e;
+}
+.side-bar-body-btn:hover {
+    background-color: #ececec;
+    border-color: #0505057d;
+}
+
+.side-bar-body-btn-txt {
+    margin: 0;
+    font-size: 18px;
+}

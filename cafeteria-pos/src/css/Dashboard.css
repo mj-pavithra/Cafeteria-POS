@@ -1,0 +1,28 @@
+.dashboard-header{
+    display: flex;
+    justify-content:center;
+    padding: 20px;
+    font-size: 30px;
+
+}
+.dashboard-body-row {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.dashboard-body-card {
+    min-width: 24vw;
+    height: auto    ;
+    display: flex;
+    flex: 1;
+    margin-right: 10px;
+    padding: 20px;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+}
+
+.dashboard-body-card:last-child {
+    margin-right: 0;
+}

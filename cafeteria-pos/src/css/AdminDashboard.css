@@ -1,0 +1,17 @@
+.admin-dashboard {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.admin-dashboard-body {
+    display: flex;
+    height: calc(100vh - 60px); /* Assuming the height of HeadBar is 60px */
+}
+
+/* Assuming you have a HeadBar.css file */
+/* Add this to your HeadBar.css */
+.head-bar {
+    height: 60px;
+    /* Add other styles as needed */
+}
