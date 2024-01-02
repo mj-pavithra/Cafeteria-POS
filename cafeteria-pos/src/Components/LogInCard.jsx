@@ -33,7 +33,7 @@ function LogInCard() {
           </form>
           <div className="to-sign-up-div">
             <p className="to-sign-up-txt">Don't have an account?</p>
-            <a className="to-sign-up" href="/registration">Sign Up</a>
+            <a className="to-sign-up" href="/register">Sign Up</a>
           </div>
 
         </div>
