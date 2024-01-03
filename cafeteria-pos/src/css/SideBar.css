@@ -50,3 +50,7 @@
     font-size: 18px;
     align-items: center;
 }
+a {
+  text-decoration: none;
+  color: inherit;
+}

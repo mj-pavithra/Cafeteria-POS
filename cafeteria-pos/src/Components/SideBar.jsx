@@ -10,16 +10,22 @@ function SideBar() {
       <div className="side-bar-body">
         <div className="side-bar-body-btns">
           <button className="side-bar-body-btn btn btn-primary">
+            <i className="fas fa-info-circle"></i>
+            <a href="/admin-dashboard">
+              <p className="side-bar-body-btn-txt">Dashboard</p>
+            </a>
+          </button>
+          <button className="side-bar-body-btn btn btn-primary">
             <i className="fas fa-list"></i>
-            <p className="side-bar-body-btn-txt">Menu</p>
+            <a href="/admin-menu">
+              <p className="side-bar-body-btn-txt">Menu</p>
+            </a>
           </button>
           <button className="side-bar-body-btn btn btn-primary">
             <i className="fas fa-clipboard-list"></i>
-            <p className="side-bar-body-btn-txt">Orders List</p>
-          </button>
-          <button className="side-bar-body-btn btn btn-primary">
-            <i className="fas fa-info-circle"></i>
-            <p className="side-bar-body-btn-txt">Order Details</p>
+            <a href="/admin-order-list">
+              <p className="side-bar-body-btn-txt">Order List</p>
+            </a>
           </button>
           <button className="side-bar-body-btn btn btn-primary">
             <i className="fas fa-users"></i>
