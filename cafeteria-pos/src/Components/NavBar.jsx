@@ -1,20 +1,26 @@
 import React from "react";
-import NavBar from "../Components/NavBar";
+import "../css/NavBar.css";
 
-function App() {
-  const navItems = [
-    { icon: "home", text: "Home" },
-    { icon: "user", text: "Profile" },
-    { icon: "cog", text: "Settings" },
-    { icon: "sign-out-alt", text: "Log Out" },
-  ];
-
+function NavBar({ navItems }) {
   return (
-    <div className="app">
-      <NavBar navItems={navItems} />
-      {/* rest of your app */}
+    <div className="nav-bar">
+      <div className="nav-bar-bracket">
+        <div className="nav-bar-logo-section">
+          <img
+            src="/images/preloader-new.png"
+            alt="logo"
+            className="nav-bar-logo"
+          />
+        </div>
+        {navItems.map((item, index) => (
+          <button key={index} className="nav-bar-btn btn-primary ">
+            <i className={`fas fa-${item.icon}`}></i>
+            <p className="nav-bar-btn-txt">{item.text}</p>
+          </button>
+        ))}
+      </div>
     </div>
   );
 }
 
-export default App;
+export default NavBar;

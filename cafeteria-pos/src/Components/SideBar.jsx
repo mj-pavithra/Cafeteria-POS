@@ -11,7 +11,7 @@ function SideBar() {
         <div className="side-bar-body-btns">
           <button className="side-bar-body-btn btn btn-primary">
             <i className="fas fa-list"></i>
-            <p className="side-bar-body-btn-txt">Menus</p>
+            <p className="side-bar-body-btn-txt">Menu</p>
           </button>
           <button className="side-bar-body-btn btn btn-primary">
             <i className="fas fa-clipboard-list"></i>
