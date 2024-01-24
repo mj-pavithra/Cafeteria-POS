@@ -31,9 +31,7 @@ function LogInCard() {
     } catch (error) {
       console.error("Login error:", error);
   
-      if (error.code === "auth/user-not-found" || error.code === "auth/invalid-email") {
-        // Show an error message on the email input field
-        emailInput.classList.add("email-error");
+      if (error.code === "auth/user-not-found" || error.code === "auth/invalid-email") {        emailInput.classList.add("email-error");
         emailInput.setCustomValidity("Invalid email");
         emailInput.reportValidity();
       }
