@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "773420237749",
+    "firebase_url": "https://cafeteria-system-69849-default-rtdb.firebaseio.com",
+    "project_id": "cafeteria-system-69849",
+    "storage_bucket": "cafeteria-system-69849.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:773420237749:android:0395df7e5dffddddb18ffc",
+        "android_client_info": {
+          "package_name": "com.tharindu.cafeteria"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXnfXVs-o_VACyKZL_AuDkcjSscaeZJB4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
