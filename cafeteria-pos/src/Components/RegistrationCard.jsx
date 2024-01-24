@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import "../css/RegistrationCard.css";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
-import { useHistory } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 function RegistrationCard() {
-  const history = useHistory();
+  const navigate = useNavigate(); // Use the useNavigate hook
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -24,26 +23,27 @@ function RegistrationCard() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     // Basic password validation
     if (password !== confirmPassword) {
       console.error("Passwords do not match");
       return;
     }
-  
+
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       console.log("User registered:", userCredential.user);
-  
+
       // Display a greeting message upon successful signup
       alert("Welcome! You have successfully signed up.");
-      DelayNode(2000);
-      history.push("/ ");
-  
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
+
       // Handle successful signup, e.g., redirect or update state
     } catch (error) {
       console.error("Signup error:", error.message);
-  
+
       // Check if the error is due to email already being used
       if (error.code === "auth/email-already-in-use") {
         // Show an error message on the email input field
@@ -51,10 +51,11 @@ function RegistrationCard() {
         emailInput.classList.add("email-error");
         emailInput.setCustomValidity("Email is already in use");
         emailInput.value = "Email is already in use";
-        password.value = "";
-        confirmPassword.value = "";
+        // Clear password and confirm password fields
+        setPassword("");
+        setConfirmPassword("");
       }
-  
+
       // Handle signup error, e.g., show an error message to the user
     }
   };
