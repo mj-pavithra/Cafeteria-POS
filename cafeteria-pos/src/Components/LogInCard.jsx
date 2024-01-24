@@ -2,39 +2,53 @@ import React, { useState } from "react";
 import "../css/LogInCard.css";
 import { auth } from "../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+
+
 
 function LogInCard() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        console.log(userCredential);
-        const user = userCredential.user;
-        // Handle successful login, e.g., redirect or update state
-      })
-      .catch((error) => {
-        console.error("Login error:", error);
-        if (error.code === "auth/user-not-found" || error.code === "auth/invalid-email") {
-          // Show an error message on the email input field
-          const emailInput = document.getElementById("exampleInputEmail1");
-          emailInput.classList.add("email-error");
-          emailInput.setCustomValidity("Invalid email");
-        }
   
-        if (error.code === "auth/wrong-password") {
-          // Show an error message on the password input field
-          const passwordInput = document.getElementById("exampleInputPassword1");
-          passwordInput.classList.add("password-error");
-          passwordInput.setCustomValidity("Incorrect password");
-        }
-        // Handle login error, e.g., show an error message to the user
-      });
+    // Clear previous error states
+    const emailInput = document.getElementById("exampleInputEmail1");
+    const passwordInput = document.getElementById("exampleInputPassword1");
+    emailInput.classList.remove("email-error");
+    passwordInput.classList.remove("password-error");
+    emailInput.setCustomValidity("");
+    passwordInput.setCustomValidity("");
+  
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      console.log(userCredential);
+      const user = userCredential.user;
+      navigate("/admin-dashboard");
+      // Handle successful login, e.g., redirect or update state
+    } catch (error) {
+      console.error("Login error:", error);
+  
+      if (error.code === "auth/user-not-found" || error.code === "auth/invalid-email") {
+        // Show an error message on the email input field
+        emailInput.classList.add("email-error");
+        emailInput.setCustomValidity("Invalid email");
+        emailInput.reportValidity();
+      }
+  
+      if (error.code === "auth/wrong-password") {
+        // Show an error message on the password input field
+        passwordInput.classList.add("password-error");
+        passwordInput.setCustomValidity("Incorrect password");
+        passwordInput.reportValidity();
+      }
+  
+      // Handle other login errors
+    }
   };
-
+  
   return (
     <div className="card">
       <div className="card-body">
