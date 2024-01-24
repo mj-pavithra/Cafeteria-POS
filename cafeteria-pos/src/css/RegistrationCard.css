@@ -15,3 +15,11 @@
     align-items: center;
     opacity: 0.9;
 }
+.password-mismatch {
+    border-color: red;
+}
+
+.email-error {
+    border-color: red;
+  }
+  

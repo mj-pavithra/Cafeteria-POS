@@ -7,7 +7,6 @@ import AdminDashboard from "./Pages/AdminDashboard";
 import AdminMenu from './Pages/AdminMenu';
 import AdminOrderList from "./Pages/AdminOrderList";
 
-
 function App() {
   return (
     <BrowserRouter>
