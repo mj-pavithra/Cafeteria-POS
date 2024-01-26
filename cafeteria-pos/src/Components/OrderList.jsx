@@ -1,5 +1,10 @@
-import React from 'react';
+
 import "../css/OrderList.css"
+import React, { useState, useEffect } from "react";
+import "../css/Menu.css";
+import { ref, get, child } from 'firebase/database';
+import { db } from "../firebase";
+
 
 const orderData = [
   {
@@ -93,6 +98,36 @@ const orderData = [
 ];
 
 function OrderList() {
+  const [menuItems, setMenuItems] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const categoriesRef = ref(db, 'orderList');
+        const categoriesSnapshot = await get(categoriesRef);
+
+        const items = [];
+        categoriesSnapshot.forEach((categorySnapshot) => {
+          const category = categorySnapshot.val();
+          if (category.items) {
+            Object.values(category.items).forEach((item) => {
+              items.push({
+                category: category.name,
+                ...item
+              });
+            });
+          }
+        });
+
+        setMenuItems(items);
+} catch (error) {
+        console.error('Error fetching data:', error.message);
+      }
+    };
+
+    fetchData();
+  }, []);
+
     return (
       <div className="order-list">
         <div className="order-list-head">

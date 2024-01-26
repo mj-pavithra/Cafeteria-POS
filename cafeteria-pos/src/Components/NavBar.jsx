@@ -12,14 +12,22 @@ function NavBar({ navItems }) {
             className="nav-bar-logo"
           />
         </div>
-        {navItems.map((item, index) => (
-          <button key={index} className="nav-bar-btn btn-primary ">
-            <i className={`fas fa-${item.icon}`}></i>
-            <p className="nav-bar-btn-txt">{item.text}</p>
+        
+          <button className="nav-bar-btn btn-primary ">
+            <i className="fas fa-$home"></i>
+            <p className="nav-bar-btn-txt">Home</p>
           </button>
-        ))}
+          <button className="nav-bar-btn btn-primary ">
+            <i className="fas fa-$user"></i>
+            <p className="nav-bar-btn-txt">Profile</p>
+          </button>
+          <button className="nav-bar-btn btn-primary ">
+          <a href="/">
+            <i className="fas fa-$home"></i>
+            <p className="nav-bar-btn-txt">Log Out</p></a>
+          </button>
       </div>
-    </div>
+    </div> 
   );
 }
 
