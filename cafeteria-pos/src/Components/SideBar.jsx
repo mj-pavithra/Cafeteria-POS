@@ -29,7 +29,9 @@ function SideBar() {
           </button>
           <button className="side-bar-body-btn btn btn-primary">
             <i className="fas fa-users"></i>
+            <a href="/admin-customer-list">
             <p className="side-bar-body-btn-txt">Customers</p>
+            </a>
           </button>
           <button className="side-bar-body-btn btn btn-primary">
             <i className="fas fa-hamburger"></i>
@@ -39,10 +41,13 @@ function SideBar() {
             <i className="fas fa-calendar-alt"></i>
             <p className="side-bar-body-btn-txt">Calendar</p>
           </button>
+          <a href="/">
           <button className="side-bar-body-btn btn btn-primary">
             <i className="fas fa-sign-out-alt"></i>
             <p className="side-bar-body-btn-txt">Sign Out</p>
+            
           </button>
+          </a>
         </div>
       </div>
     </div>
