@@ -1,66 +1,38 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../css/Menu.css";
-
-const menuData = {
-  Breakfast: [
-    "String Hoppers",
-    "Fish Curry",
-    "Pittu",
-    "Idli",
-    "Sambar",
-    "Dosa",
-    "Pancakes",
-    "Bacon",
-    "Eggs Benedict",
-  ],
-  Lunch: [
-    "Rice and Curry",
-    "Kottu",
-    "Lamprais",
-    "Biryani",
-    "Butter Chicken",
-    "Palak Paneer",
-    "Burger",
-    "Pizza",
-    "Pasta",
-  ],
-  "Tea Time": [
-    "Fish Buns",
-    "Wade",
-    "Samosa",
-    "Pakora",
-    "Sandwiches",
-    "Cookies",
-    "Cake",
-    "Patties",
-    "Doughnuts",
-  ],
-  "Birthday Packages": [
-    "Rice and Curry",
-    "Fruit Salad",
-    "Biryani",
-    "Gulab Jamun",
-    "Spaghetti",
-    "Ice Cream",
-    "Cake",
-
-  ],
-  "Party Packages": [
-    "Devilled Chicken",
-    "Fried Rice",
-    "Tandoori Chicken",
-    "Naan",
-    "BBQ Ribs",
-    "Garlic Bread",
-    "Fruit Salad",
-    "Ice Cream",
-  ],
-};
+import { ref, get, child } from 'firebase/database';
+import { db } from "../firebase";
 
 function Menu() {
-  const maxItems = Math.max(
-    ...Object.values(menuData).map((items) => items.length)
-  );
+  const [menuItems, setMenuItems] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const categoriesRef = ref(db, 'category');
+        const categoriesSnapshot = await get(categoriesRef);
+
+        const items = [];
+        categoriesSnapshot.forEach((categorySnapshot) => {
+          const category = categorySnapshot.val();
+          if (category.items) {
+            Object.values(category.items).forEach((item) => {
+              items.push({
+                category: category.name,
+                ...item
+              });
+            });
+          }
+        });
+
+        setMenuItems(items);
+} catch (error) {
+        console.error('Error fetching data:', error.message);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <div>
@@ -71,17 +43,19 @@ function Menu() {
       <table>
         <thead>
           <tr>
-            {Object.keys(menuData).map((meal) => (
-              <th key={meal}>{meal}</th>
-            ))}
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Quantity</th>
           </tr>
         </thead>
         <tbody>
-          {Array.from({ length: maxItems }).map((_, i) => (
-            <tr key={i}>
-              {Object.values(menuData).map((items, j) => (
-                <td key={j}>{items[i]}</td>
-              ))}
+          {menuItems.map((item, index) => (
+            <tr key={index}>
+              <td>{item.name}</td>
+              <td>{item.description}</td>
+              <td>{item.price}</td>
+              <td>{item.quantity}</td>
             </tr>
           ))}
         </tbody>
@@ -89,6 +63,5 @@ function Menu() {
     </div>
   );
 }
-
 
 export default Menu;

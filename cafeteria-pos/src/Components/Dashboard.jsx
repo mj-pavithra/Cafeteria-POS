@@ -1,16 +1,42 @@
-import React from "react";
+import React, {useState, useEffect}from "react";
 import "../css/Dashboard.css";
 import { Link } from "react-router-dom";
-
-
+import StartFirebase from "../firebase";
+import { onValue} from "firebase/database";
+import {db} from "../firebase";
 import { Pie, Bar } from "react-chartjs-2";
 import { Chart,BarController, ArcElement, CategoryScale, LinearScale } from "chart.js";
+import { ref, get, child, getDatabase } from 'firebase/database';
 
 Chart.register(ArcElement, CategoryScale, LinearScale, BarController);
 
 
 
+
 function Dashboard() {
+
+  const [data, setData] = useState([]);
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const dataRef = ref(db, 'users');
+  //       const snapshot = await get(child(dataRef, '/'));
+
+  //       // Check if snapshot.val() is not null
+  //       if (snapshot.exists()) {
+  //         setData(snapshot.val());
+  //       } else {
+  //         console.log('No data available');
+  //       }
+  //     } catch (error) {
+  //       console.error('Error fetching data:', error.message);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, []);
+
     const state = {
       labels: [
         "Beverages",
