@@ -44,7 +44,13 @@ function RegistrationCard() {
       setPasswordMatch(false);
       setPasswordError("Passwords do not match");
       return;
-    } else {
+    }
+    else if(password.length < 6){
+      setPasswordError("Password must be at least 6 characters");
+      setPasswordMatch(false);
+      return;
+    }
+    else {
       setPasswordMatch(true);
     }
 
