@@ -10,24 +10,42 @@ function RegistrationCard() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordMatch, setPasswordMatch] = useState(true);
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [warning, setWarning] = useState("");
 
   const handlePasswordChange = (value) => {
     setPassword(value);
     setPasswordMatch(value === confirmPassword);
+    // Clear password error when typing
+    setPasswordError("");
   };
 
   const handleConfirmPasswordChange = (value) => {
     setConfirmPassword(value);
     setPasswordMatch(password === value);
+    // Clear password error when typing
+    setPasswordError("");
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Basic password validation
-    if (password !== confirmPassword) {
-      console.error("Passwords do not match");
+    // Check for blank fields
+    if (!email.trim() || !password.trim() || !confirmPassword.trim()) {
+      setWarning("All fields are required");
       return;
+    } else {
+      setWarning("");
+    }
+
+    // Check if password and confirm password match
+    if (password !== confirmPassword) {
+      setPasswordMatch(false);
+      setPasswordError("Passwords do not match");
+      return;
+    } else {
+      setPasswordMatch(true);
     }
 
     try {
@@ -39,24 +57,13 @@ function RegistrationCard() {
       setTimeout(() => {
         navigate("/");
       }, 2000);
-
-      // Handle successful signup, e.g., redirect or update state
     } catch (error) {
       console.error("Signup error:", error.message);
 
-      // Check if the error is due to email already being used
+      // Handle email already in use error
       if (error.code === "auth/email-already-in-use") {
-        // Show an error message on the email input field
-        const emailInput = document.getElementById("exampleInputEmail1");
-        emailInput.classList.add("email-error");
-        emailInput.setCustomValidity("Email is already in use");
-        emailInput.value = "Email is already in use";
-        // Clear password and confirm password fields
-        setPassword("");
-        setConfirmPassword("");
+        setEmailError("Email is already in use");
       }
-
-      // Handle signup error, e.g., show an error message to the user
     }
   };
 
@@ -69,22 +76,26 @@ function RegistrationCard() {
             <label className="label" htmlFor="exampleInputEmail1">
               Email
             </label>
+            <span className="email-error-txt error">{emailError}</span>
             <input
               type="email"
-              className="form-control inputs"
+              className={`form-control inputs ${emailError ? 'input-error' : ''}`}
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                setEmailError(""); // Clear email error when typing
+              }}
             />
-            <small id="emailHelp" className="form-text text-muted"></small>
           </div>
           <div className="form-group">
             <label className="label" htmlFor="exampleInputPassword1">
               Password
             </label>
+            <span className="password-error-txt error">{passwordError}</span>
             <input
               type="password"
-              className={`form-control inputs ${!passwordMatch ? 'password-mismatch' : ''}`}
+              className={`form-control inputs ${passwordError || !passwordMatch ? 'input-error' : ''}`}
               id="exampleInputPassword1"
               onChange={(e) => handlePasswordChange(e.target.value)}
             />
@@ -93,12 +104,14 @@ function RegistrationCard() {
             <label className="label" htmlFor="exampleInputConfirmPassword1">
               Confirm Password
             </label>
+            <span className="re-password-txt error">{passwordError}</span>
             <input
               type="password"
-              className={`form-control inputs ${!passwordMatch ? 'password-mismatch' : ''}`}
+              className={`form-control inputs ${passwordError || !passwordMatch ? 'input-error' : ''}`}
               id="exampleInputConfirmPassword1"
               onChange={(e) => handleConfirmPasswordChange(e.target.value)}
             />
+          <span className="warning-txt error">{warning}</span>
           </div>
           <button type="submit" className="btn btn-primary">
             SIGN UP
