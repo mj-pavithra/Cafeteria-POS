@@ -7,18 +7,22 @@ import AdminDashboard from "./Pages/AdminDashboard";
 import AdminMenu from './Pages/AdminMenu';
 import AdminOrderList from "./Pages/AdminOrderList";
 import AdminCusList from "./Pages/AdminCusList";
+import AdminAddItem from "./Pages/AdminAddItem";
+import HomePage from './Pages/HomePage';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<LogInPage />} />
-        <Route path="/home" element={<h1>Home</h1>} />
+        <Route path="/login" element={<LogInPage />} />
+        <Route path="/" element={<HomePage/>} />
         <Route path="/register" element={<RegistrationPage />} />
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
         <Route path="/admin-menu" element={<AdminMenu />} />
         <Route path="/admin-order-list" element={<AdminOrderList />} />
         <Route path="/admin-customer-list" element={<AdminCusList />} />
+        <Route path="/add-item" element={<AdminAddItem />} />
+
       </Routes>
     </BrowserRouter>
   );

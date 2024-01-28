@@ -38,13 +38,16 @@ function Menu() {
     <div>
       <div className="menu-header">
         <h3 className="menu-header-txt">Menu</h3>
+        <button className="add-item">
+          <a href="/add-item" className="add-item-txt">Add New Item</a>
+        </button>
       </div>
       <div className="menu-body"></div>
       <table>
         <thead>
           <tr>
             <th>Name</th>
-            <th>Description</th>
+            <th className="dis-column">Description</th>
             <th>Price</th>
             <th>Quantity</th>
           </tr>
@@ -53,7 +56,7 @@ function Menu() {
           {menuItems.map((item, index) => (
             <tr key={index}>
               <td>{item.name}</td>
-              <td>{item.description}</td>
+              <td className="dis-column">{item.description}</td>
               <td>{item.price}</td>
               <td>{item.quantity}</td>
             </tr>

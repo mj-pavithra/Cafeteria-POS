@@ -10,6 +10,7 @@ function LogInCard() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [login, setLogin] = useState(false);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -25,24 +26,37 @@ function LogInCard() {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       console.log(userCredential);
+
+      localStorage.setItem("isLoggedIn", true);
+      setLogin(true);
       const user = userCredential.user;
       navigate("/admin-dashboard");
       // Handle successful login, e.g., redirect or update state
     } catch (error) {
       console.error("Login error:", error);
   
-      if (error.code === "auth/user-not-found" || error.code === "auth/invalid-email") {        emailInput.classList.add("email-error");
-        emailInput.setCustomValidity("Invalid email");
-        emailInput.reportValidity();
+      switch (error.code) {
+        case "auth/user-not-found":
+        case "auth/invalid-email":
+          // Handle user-not-found or invalid-email error
+          emailInput.classList.add("email-error");
+          emailInput.setCustomValidity("Invalid email");
+          emailInput.reportValidity();
+          break;
+        case "auth/wrong-password":
+          // Handle wrong-password error
+          passwordInput.classList.add("password-error");
+          passwordInput.setCustomValidity("Incorrect password");
+          passwordInput.reportValidity();
+          break;
+        default:
+          // Handle other error codes
+          console.error("Error:", error.message);
+          // Show a generic error message to the user
+          // You can display this message in a toast or alert
+          alert("Login failed. Please try again later.");
+          break;
       }
-  
-      if (error.code === "auth/wrong-password") {
-        // Show an error message on the password input field
-        passwordInput.classList.add("password-error");
-        passwordInput.setCustomValidity("Incorrect password");
-        passwordInput.reportValidity();
-      }
-  
       // Handle other login errors
     }
   };

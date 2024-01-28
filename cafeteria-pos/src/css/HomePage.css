@@ -1,0 +1,72 @@
+.home-page-container {
+    background-image: url('/login-background.jpg'); /* Replace 'path_to_your_image.jpg' with the path to your image */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-page-content {
+text-align: center;
+color: white;
+}
+
+.buttons-container {
+margin-top: 20px;
+}
+.home-page-content {
+opacity: 0.92;
+}
+.home-page-content:hover{
+    opacity: 1;
+
+}
+.btn {
+margin-right: 10px;
+}
+.name-of-the-cafe{
+    font-size: 80px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.welcome{
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 20px;
+
+}
+
+.btn-primary2{
+    background-color: #1b351b;
+    border: none;
+    color: white;
+    padding: 10px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    margin: 10px 20px;
+    cursor: pointer;
+    border-radius: 12px;
+
+}
+
+.btn-primary2:hover{
+    background-color: #1b351b;
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    transform: scale(1.1);
+}
+

@@ -10,7 +10,7 @@ function OrderList() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const ordersRef = ref(db, 'orderList');
+        const ordersRef = ref(db, 'orders');
         const ordersSnapshot = await get(ordersRef);
 
         const orders = [];
@@ -33,24 +33,33 @@ function OrderList() {
         <h2 className="menu-header-txt">Order List</h2>
       </div>
       <div className="menu-list-body">
-        <table>
-          <thead>
-            <tr>
-              {orderData.length > 0 && Object.keys(orderData[0]).map((key) => (
-                <th key={key}>{key}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {orderData.map((order, i) => (
-              <tr key={i}>
-                {Object.values(order).map((value, j) => (
-                  <td key={j}>{value}</td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <table>
+      <thead>
+        <tr>
+          <th>Category ID</th>
+          <th>Date</th>
+          <th>Item Description</th>
+          <th>Item Name</th>
+          <th>Price</th>
+          <th>Time</th>
+          <th>User ID</th>
+        </tr>
+      </thead>
+      <tbody>
+        {orderData.map((order, i) => (
+          <tr key={i}>
+            <td>{order.categoryId}</td>
+            <td>{order.date}</td>
+            <td>{order.itemDescription}</td>
+            <td>{order.itemName}</td>
+            <td>Rs.{order.price}</td>
+            <td>{order.time}</td>
+            <td>{order.userId}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+    
       </div>
     </div>
   );
