@@ -1,4 +1,5 @@
 .menu-header{
+    position: relative;
     margin: 0;
     padding: 0;
     display: flex;
@@ -46,4 +47,35 @@ th {
 
 tr:nth-child(even) {
   background-color: #f2f2f2;
+}
+
+.add-item{
+  height: 50px;
+  position: relative;
+  left: 25vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  padding: 5px;
+  width: (100%-5vw);
+  border-radius: 10px;
+  background-color: #f3f3f3;
+
+}
+.add-item:hover{
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  transform: scale(1.05);
+}
+.add-item-txt{
+  font-size: 20px;
+  font-weight: bold;
+  color: #000;
+  text-align: center;
+  width: (100%-5vw);
+  border-radius: 10px;
+}
+
+.dis-column{
+  max-width: 20vw;
 }

@@ -22,7 +22,7 @@
     max-width: 1300px;
     min-width: 300px;
     background-color: aliceblue;
-    background-image: url('/public/images/login background.jpg');
+    background-image: url('/images/login background.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }

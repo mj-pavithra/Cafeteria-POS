@@ -14,8 +14,10 @@ function NavBar({ navItems }) {
         </div>
         
           <button className="nav-bar-btn btn-primary ">
+          <a href="/admin-dashboard">
             <i className="fas fa-$home"></i>
             <p className="nav-bar-btn-txt">Home</p>
+          </a>
           </button>
           <button className="nav-bar-btn btn-primary ">
             <i className="fas fa-$user"></i>
@@ -27,7 +29,7 @@ function NavBar({ navItems }) {
             <p className="nav-bar-btn-txt">Log Out</p></a>
           </button>
       </div>
-    </div> 
+    </div>
   );
 }
 

@@ -107,7 +107,7 @@ function RegistrationCard() {
       </div>
       <div className="to-sign-up-div">
         <p className="to-sign-up-txt">Already have an account?</p>
-        <a className="to-sign-up" href="/">
+        <a className="to-sign-up" href="/login">
           Sign In
         </a>
       </div>
