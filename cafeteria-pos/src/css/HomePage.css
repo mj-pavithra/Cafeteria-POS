@@ -13,7 +13,7 @@ text-align: center;
 color: white;
 }
 
-.buttons-container {
+.buttons-container1 {
 margin-top: 20px;
 }
 .home-page-content {
@@ -22,9 +22,6 @@ opacity: 0.92;
 .home-page-content:hover{
     opacity: 1;
 
-}
-.btn {
-margin-right: 10px;
 }
 .name-of-the-cafe{
     font-size: 80px;

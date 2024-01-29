@@ -9,7 +9,7 @@
     padding: 10px;
     background-color: #f8f9fa;
     border-bottom: 1px solid #dee2e6;
-    height: 50px;
+    height: 60px;
     width: 84vw;
 }
 
@@ -19,9 +19,10 @@
     justify-content: flex-end;
 }
 .nav-bar-logo-section{
+    height: 45px;
     display: flex;
     justify-content: flex-start;
-    margin-right: 40vw;
+    margin-right: 50vw;
 }
 
 .nav-bar-btn {
