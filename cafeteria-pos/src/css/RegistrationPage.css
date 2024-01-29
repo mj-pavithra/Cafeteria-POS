@@ -18,3 +18,12 @@
     background-size: cover;
     background-color: black;
 }
+
+.error{
+    color: red;
+    /* font-size: 15px;
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: 10px; */
+}

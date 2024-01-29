@@ -12,17 +12,19 @@ function AddItem() {
     const [itemPrice, setItemPrice] = useState(0);
     const [image, setImage] = useState(null);
 
+
+
     useEffect(() => {
         const fetchData = async () => {
             try {
                 // Fetch categories from Firestore collection
-                const categoriesCollection = collection(db, 'category');
+                const categoriesCollection = collection(db, 'users');
                 const categoriesSnapshot = await getDocs(categoriesCollection);
     
                 const categoriesData = categoriesSnapshot.docs.map(doc => ({
                     id: doc.id,
                     ...doc.data()
-                }));
+                })); 
     
                 setCategories(categoriesData);
             } catch (error) {
@@ -58,27 +60,24 @@ function AddItem() {
         event.preventDefault();
     
         try {
-            // Upload image to storage
-            const imageRef = ref(storage, `images/${image.name}`);
-            const uploadTask = uploadBytesResumable(imageRef, image);
-            await uploadTask;
-
-            const downloadURL = await getDownloadURL(imageRef);
-
             // Add item details to Firestore
             const itemsCollection = collection(db, `category/${selectedCategory}/items`);
-            await addDoc(itemsCollection, { // Use addDoc to add item to Firestore
+            await addDoc(itemsCollection, {
                 name: itemName,
                 description: itemDescription,
                 price: itemPrice,
-                imageUrl: downloadURL
+                // imageUrl: downloadURL
             });
     
             alert('Item added successfully!');
+            setTimeout(() => {
+                window.location.reload();
+            }, 800);
         } catch (error) {
             console.error('Error adding item:', error.message);
         }
     };
+    
     
     return (
         <div className="add-item1">

@@ -9,6 +9,7 @@ import AdminOrderList from "./Pages/AdminOrderList";
 import AdminCusList from "./Pages/AdminCusList";
 import AdminAddItem from "./Pages/AdminAddItem";
 import HomePage from './Pages/HomePage';
+import ForgotPasswordPage from './Pages/ForgotPasswordPage';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/login" element={<LogInPage />} />
         <Route path="/" element={<HomePage/>} />
         <Route path="/register" element={<RegistrationPage />} />
+        <Route path="/forgot-password" element={<ForgotPasswordPage />} />
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
         <Route path="/admin-menu" element={<AdminMenu />} />
         <Route path="/admin-order-list" element={<AdminOrderList />} />

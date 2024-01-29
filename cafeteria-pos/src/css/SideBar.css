@@ -49,6 +49,8 @@
 .side-bar-body-btn-txt {
     font-size: 18px;
     align-items: center;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
 }
 a {
   text-decoration: none;
